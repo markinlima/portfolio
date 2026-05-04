@@ -80,7 +80,7 @@ export function ContactForm() {
 
 			<Form.AppForm>
 				<Form.SubmitButton className="max-lg:w-full" size="lg">
-					Enviar Menssagem!
+					Enviar Mensagem!
 				</Form.SubmitButton>
 			</Form.AppForm>
 		</form>

@@ -20,6 +20,7 @@ WORKDIR /app
 COPY --from=build /build/build/frontend /app
 COPY --from=build /build/.env /app
 
+ENV NODE_ENV=production
 ENV PORT=5173
 EXPOSE 5173
 
