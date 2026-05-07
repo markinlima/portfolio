@@ -71,6 +71,21 @@ export const Route = createRootRouteWithContext<RouteContext>()({
 			{ rel: "stylesheet", href: appCss },
 			{ rel: "icon", href: "/images/icon.svg" },
 		],
+		scripts: [
+			{
+				src: "https://umami.kitokinha.com/script.js",
+				"data-website-id": "e816cc05-051f-4925-b1fd-05ce8b3cc9c1",
+				defer: true,
+			},
+			{
+				src: "https://umami.kitokinha.com/recorder.js",
+				"data-website-id": "e816cc05-051f-4925-b1fd-05ce8b3cc9c1",
+				"data-sample-rate": "0.15",
+				"data-mask-level": "moderate",
+				"data-max-duration": "300000",
+				defer: true,
+			},
+		],
 	}),
 	component: RootComponent,
 });
