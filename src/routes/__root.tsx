@@ -98,7 +98,7 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
 		<html lang="pt">
 			<head>
 				<HeadContent />
-				<script defer src="https://umami.kitokinha.com/script.js" data-website-id="e816cc05-051f-4925-b1fd-05ce8b3cc9c1" />
+				<script defer src="https://umami.kitokinha.com/ronalads.js" data-website-id="e816cc05-051f-4925-b1fd-05ce8b3cc9c1" />
 				<script
 					defer
 					src="https://umami.kitokinha.com/recorder.js"
