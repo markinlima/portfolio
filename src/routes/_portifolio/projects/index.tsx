@@ -55,7 +55,10 @@ function RouteComponent() {
 					{filteredProjects.map((project) => {
 						return (
 							<Dialog.Root key={project.id}>
-								<Dialog.Trigger className="text-left">
+								<Dialog.Trigger
+									className="text-left"
+									onClick={() => window.umami?.track("view_project", { projectName: project.title })}
+								>
 									<ProjectCard project={project} />
 								</Dialog.Trigger>
 								<ProjectDialog project={project} />

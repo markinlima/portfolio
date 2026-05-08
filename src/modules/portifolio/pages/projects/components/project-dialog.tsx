@@ -154,7 +154,13 @@ export function ProjectDialog({ project }: ProjectDialogProps) {
 							<h3 className="font-semibold text-foreground text-sm uppercase tracking-wide">Links</h3>
 							<div className="flex flex-col gap-2">
 								{project.links.map(({ href, name, type }) => (
-									<a href={href} key={href} target="_blank" rel="noreferrer">
+									<a
+										href={href}
+										key={href}
+										target="_blank"
+										rel="noreferrer"
+										onClick={() => window.umami?.track("project_link_click", { projectName: project.title, type })}
+									>
 										<Button variant="outline" className="h-12 w-full justify-start gap-3 bg-transparent">
 											{getLinkIcon(type)}
 											<span className="font-medium">{name}</span>

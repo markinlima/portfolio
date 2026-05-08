@@ -23,7 +23,13 @@ export function ContactForm() {
 		},
 		defaultValues,
 		onSubmit: async ({ value }) => {
-			await sendMessage(value);
+			try {
+				await sendMessage(value);
+				window.umami?.track("contact_submit_success");
+			} catch (error) {
+				window.umami?.track("contact_submit_error", { form: "contact" });
+				throw error;
+			}
 		},
 	});
 

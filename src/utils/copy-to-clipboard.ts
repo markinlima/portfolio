@@ -8,4 +8,5 @@ interface CopyToClipboardProps {
 export function copyToClipboard({ value, message }: CopyToClipboardProps) {
 	navigator.clipboard.writeText(value);
 	toast.success({ title: "Valor Copiado!", description: message });
+	window.umami?.track("copy_info", { value_copied: value });
 }

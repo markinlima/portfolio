@@ -76,6 +76,7 @@ export const Route = createRootRouteWithContext<RouteContext>()({
 		{
 			src: "https://umami.kitokinha.com/ronalads.js",
 			"data-website-id": "e816cc05-051f-4925-b1fd-05ce8b3cc9c1",
+			"data-performance": true,
 			defer: true,
 		},
 		{

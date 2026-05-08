@@ -33,7 +33,14 @@ export function SideInfoCard({ className }: SideInfoCardProps) {
 				<div className="mx-auto flex items-center gap-4 rounded-full border px-4 py-2">
 					{socialMedias.map(({ icon: Icon, label, href }) => {
 						return (
-							<a href={href} title={label} key={href} target="_blank" rel="noreferrer">
+							<a
+								onClick={() => window.umami?.track("social_click", { network: label })}
+								href={href}
+								title={label}
+								key={href}
+								target="_blank"
+								rel="noreferrer"
+							>
 								<Icon className="size-6 fill-primary" />
 							</a>
 						);
