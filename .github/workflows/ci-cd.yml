@@ -78,7 +78,7 @@ jobs:
         run: |
           branch_name="${GITHUB_HEAD_REF:-$GITHUB_REF_NAME}"
           sanitized_branch_name="${branch_name//\//-}"
-          echo "tag=${{ secrets.DOCKER_USERNAME }}/apps:${{ github.event.repository.name }}-${sanitized_branch_name}-latest" >> "$GITHUB_OUTPUT"
+          echo "tag=${{ secrets.DOCKER_USERNAME }}/apps:markin-${{ github.event.repository.name }}-${sanitized_branch_name}-latest" >> "$GITHUB_OUTPUT"
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
