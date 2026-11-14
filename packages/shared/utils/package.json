@@ -1,0 +1,27 @@
+{
+  "name": "@shared/utils",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "--- LINTING ---": "",
+    "lint": "bun run ts:check && biome check",
+    "ts:check": "bun check",
+    "lint:fix": "biome check --write",
+    "--- TESTING ---": "",
+    "test": "bun run test:unit",
+    "test:watch": "bun run test:unit --watch",
+    "test:unit": "bun run scripts/unit.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "catalog:",
+    "typescript": "catalog:"
+  },
+  "dependencies": {
+    "@shared/config": "workspace:*",
+    "zod": "catalog:"
+  },
+  "exports": {
+    ".": "./src/index.ts",
+    "./*": "./src/*/index.ts"
+  }
+}
