@@ -1,114 +1,121 @@
 {
-	"$schema": "https://biomejs.dev/schemas/2.4.13/schema.json",
-	"vcs": {
-		"enabled": true,
-		"clientKind": "git",
-		"useIgnoreFile": true
-	},
-	"files": {
-		"ignoreUnknown": true,
-		"includes": ["**", "!!**/dist", "!!**/nginx", "!!**/public", "!**/*.generated.ts", "!**/*.gen.ts"]
-	},
-	"formatter": {
-		"enabled": true,
-		"formatWithErrors": false,
-		"attributePosition": "auto",
-		"indentStyle": "tab",
-		"indentWidth": 2,
-		"lineWidth": 140,
-		"lineEnding": "lf",
-		"bracketSpacing": true,
-		"expand": "auto"
-	},
-	"linter": {
-		"enabled": true,
-		"rules": {
-			"recommended": true,
-			"correctness": {
-				"noUnusedImports": {
-					"level": "warn",
-					"fix": "safe"
-				},
-				"noUnresolvedImports": "off",
-				"useImportExtensions": "off",
-				"noChildrenProp": "off" // ? tanstackform use children prop for render props, but it is not a common pattern in react, so we can disable this rule
-			},
-			"style": {
-				"useComponentExportOnlyModules": "off",
-				"useAtIndex": "on"
-			},
-			"nursery": {
-				"useSortedClasses": {
-					"level": "info",
-					"options": {
-						"attributes": ["classList"],
-						"functions": ["clsx", "cva", "tw", "tw.*", "cn"]
-					},
-					"fix": "safe"
-				}
-			},
-			"security": {
-				"noDangerouslySetInnerHtml": "error"
-			},
-			"complexity": {
-				"noExcessiveCognitiveComplexity": "on"
-			}
-		},
-		"domains": {
-			"react": "all",
-			"tailwind": "all",
-			"project": "all",
-			"test": "all"
-		}
-	},
-	"assist": {
-		"enabled": true,
-		"actions": {
-			"source": {
-				"organizeImports": "on"
-			}
-		}
-	},
-	"javascript": {
-		"formatter": {
-			"enabled": true,
-			"jsxQuoteStyle": "double",
-			"quoteStyle": "double",
-			"quoteProperties": "asNeeded",
-			"trailingCommas": "all",
-			"semicolons": "always",
-			"arrowParentheses": "always",
-			"operatorLinebreak": "before"
-		}
-	},
-	"json": {
-		"parser": {
-			"allowTrailingCommas": true,
-			"allowComments": true
-		},
-		"formatter": {
-			"enabled": true,
-			"trailingCommas": "none"
-		},
-		"linter": {
-			"enabled": true
-		},
-		"assist": {
-			"enabled": true
-		}
-	},
-	"css": {
-		"parser": {
-			"tailwindDirectives": true
-		},
-		"formatter": {
-			"enabled": true
-		},
-		"linter": {
-			"enabled": true
-		},
-		"assist": {
-			"enabled": true
-		}
-	}
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "root": true,
+  "vcs": {
+    "enabled": false,
+    "clientKind": "git",
+    "useIgnoreFile": false
+  },
+  "files": {
+    "ignoreUnknown": false,
+    "includes": [
+      "**",
+      "!**/.git",
+      "!**/node_modules",
+      "!**/.turbo",
+      "!**/dist",
+      "!**/build",
+      "!**/.kubb",
+      "!**/*.svg"
+    ]
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineWidth": 80,
+    "lineEnding": "lf"
+  },
+  "assist": {
+    "enabled": true,
+    "actions": {
+      "source": {
+        "organizeImports": {
+          "level": "on",
+          "options": {
+            "groups": [
+              ":NODE:",
+              ":BLANK_LINE:",
+              ":BUN:",
+              ":BLANK_LINE:",
+              [":PACKAGE:", "!@shared/**", "!@backend/**", "!@web/**"],
+              ":BLANK_LINE:",
+              "@shared/**",
+              "@backend/**",
+              "@web/**",
+              ":BLANK_LINE:",
+              ":ALIAS:",
+              ":BLANK_LINE:",
+              ":PATH:"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "linter": {
+    "enabled": true,
+    "domains": {
+      "project": "all",
+      "test": "all",
+      "turborepo": "all"
+    },
+    "rules": {
+      "correctness": {
+        "useExhaustiveDependencies": "info",
+        "useImportExtensions": "off",
+        "noUnresolvedImports": "off",
+        "noUnusedImports": {
+          "fix": "safe",
+          "level": "warn"
+        }
+      },
+      "nursery": {
+        "useTailwindSortedClasses": {
+          "level": "info",
+          "fix": "safe"
+        }
+      },
+      "style": {
+        "useImportsFirst": "error",
+        "noParameterAssign": "error",
+        "useAsConstAssertion": "error",
+        "useDefaultParameterLast": "error",
+        "useEnumInitializers": "error",
+        "useSelfClosingElements": "error",
+        "useSingleVarDeclarator": "error",
+        "noUnusedTemplateLiteral": "error",
+        "useNumberNamespace": "error",
+        "noInferrableTypes": "error",
+        "noUselessElse": "error",
+        "useImportType": "error",
+        "useBlockStatements": "error"
+      },
+      "suspicious": {
+        "noUndeclaredEnvVars": "off"
+      }
+    }
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "double",
+      "jsxQuoteStyle": "double",
+      "semicolons": "always"
+    }
+  },
+  "markdown": {
+    "formatter": {
+      "formatEmbeds": false
+    }
+  },
+  "css": {
+    "formatter": {
+      "enabled": true,
+      "indentWidth": 2,
+      "indentStyle": "space"
+    },
+    "parser": {
+      "tailwindDirectives": true
+    }
+  }
 }

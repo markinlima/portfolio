@@ -1,0 +1,33 @@
+{
+  "name": "@web/infinite-list",
+  "type": "module",
+  "private": true,
+  "packageManager": "bun@1.4.4",
+  "scripts": {
+    "--- LINTING ---": "",
+    "lint": "bun run ts:check && biome check",
+    "ts:check": "bun check",
+    "lint:fix": "biome check --write",
+    "--- TESTING ---": "",
+    "test:unit": "bun test",
+    "test": "bun run test:unit"
+  },
+  "dependencies": {
+    "@tanstack/react-hotkeys": "catalog:",
+    "@tanstack/react-virtual": "^3.14.13",
+    "@web/shared": "workspace:*",
+    "react": "catalog:",
+    "react-intersection-observer": "^11.0.1",
+    "tailwind-variants": "catalog:"
+  },
+  "devDependencies": {
+    "@types/bun": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "react-dom": "catalog:",
+    "typescript": "catalog:"
+  },
+  "exports": {
+    ".": "./src/index.ts"
+  }
+}
