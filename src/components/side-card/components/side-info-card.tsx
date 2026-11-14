@@ -21,7 +21,7 @@ export function SideInfoCard({ className }: SideInfoCardProps) {
 					<h1 className="font-bold text-2xl">Marcos</h1>
 					<p className="text-muted-foreground text-xs">Markin</p>
 				</div>
-				<h2 className="flex w-fit gap-1 rounded-md border bg-accent p-2">Engenheiro de software</h2>
+				<h2 className="flex w-fit gap-1 rounded-md border bg-accent p-2">Engenheiro de Software Sênior</h2>
 			</Card.Header>
 			<Card.Content className="flex w-full flex-col gap-4 max-lg:hidden">
 				<div className="h-0.5 bg-accent" />

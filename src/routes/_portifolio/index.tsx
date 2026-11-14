@@ -2,10 +2,12 @@ import { createFileRoute } from "@tanstack/react-router";
 import { RoundedIcon } from "@/components/misc/rounded-icon";
 import { Card } from "@/components/ui/card";
 import { Landing } from "@/components/ui/landing";
+import { FeaturedExperiencesSection } from "@/modules/portifolio/pages/about/components/featured-experiences-section";
 import { LearningSection } from "@/modules/portifolio/pages/about/components/learning-section";
 import { SkillsSection } from "@/modules/portifolio/pages/about/components/skills-section";
 import { areas } from "@/modules/portifolio/pages/about/constants/categories";
 import { resume } from "@/modules/portifolio/pages/about/constants/resume";
+import { FeaturedProjectsSection } from "@/modules/portifolio/pages/projects/components/featured-projects-section";
 
 export const Route = createFileRoute("/_portifolio/")({
 	component: RouteComponent,
@@ -59,6 +61,8 @@ function RouteComponent() {
 					})}
 				</div>
 			</Landing.Section>
+			<FeaturedExperiencesSection />
+			<FeaturedProjectsSection />
 			<SkillsSection />
 			<LearningSection />
 		</Landing.Page>

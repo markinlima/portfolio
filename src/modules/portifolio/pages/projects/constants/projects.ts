@@ -16,6 +16,13 @@ export const projects: Project[] = [
 			},
 		],
 		categories: ["personal", "work"],
+		featured: true,
+		metrics: [
+			{ label: "Likes", value: "1.7M" },
+			{ label: "Chubs", value: "93.8K" },
+			{ label: "Usuários", value: "10.6K" },
+			{ label: "Comentários", value: "196.8K" },
+		],
 	},
 	{
 		id: "2",
@@ -33,6 +40,7 @@ export const projects: Project[] = [
 			},
 		],
 		categories: ["personal"],
+		featured: false,
 	},
 	{
 		id: "3",
@@ -54,5 +62,8 @@ export const projects: Project[] = [
 			},
 		],
 		categories: ["demo"],
+		featured: false,
 	},
 ];
+
+export const featuredProjects = projects.filter((project) => project.featured);

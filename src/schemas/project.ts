@@ -24,6 +24,11 @@ export const projectCategoriesInfo = {
 	},
 };
 
+export const metricSchema = z.object({
+	label: z.string(),
+	value: z.string(),
+});
+
 export const projectSchema = z.object({
 	id: z.string(),
 	title: z.string(),
@@ -33,9 +38,13 @@ export const projectSchema = z.object({
 	images: z.array(z.string()),
 	links: z.array(linkSchema),
 	categories: z.array(projectCategories),
+	featured: z.boolean(),
+	/** Static snapshot of the project's public numbers, shown in the project dialog. */
+	metrics: z.array(metricSchema).optional(),
 });
 
 export type Project = z.infer<typeof projectSchema>;
 export type Link = z.infer<typeof linkSchema>;
+export type Metric = z.infer<typeof metricSchema>;
 export type Plataform = z.infer<typeof plataforms>;
 export type ProjectCategory = z.infer<typeof projectCategories>;

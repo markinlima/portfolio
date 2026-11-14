@@ -149,6 +149,20 @@ export function ProjectDialog({ project }: ProjectDialogProps) {
 						</div>
 					</div>
 
+					{!!project.metrics?.length && (
+						<div className="space-y-3">
+							<h3 className="font-semibold text-foreground text-sm uppercase tracking-wide">Métricas</h3>
+							<div className="grid grid-cols-2 gap-3">
+								{project.metrics.map(({ label, value }) => (
+									<div key={label} className="rounded-md border bg-card p-3">
+										<p className="font-bold text-foreground text-lg">{value}</p>
+										<p className="text-muted-foreground text-xs">{label}</p>
+									</div>
+								))}
+							</div>
+						</div>
+					)}
+
 					{project.links.length > 0 && (
 						<div className="space-y-4">
 							<h3 className="font-semibold text-foreground text-sm uppercase tracking-wide">Links</h3>

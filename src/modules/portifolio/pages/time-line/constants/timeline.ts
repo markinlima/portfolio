@@ -22,6 +22,7 @@ export const timelineEvents: TimelineEvent[] = [
 		description: "Iniciei como sócio e desenvolvedor, participando ativamente da criação da plataforma desde o início.",
 		date: "2024-10-1",
 		type: "workExperience",
+		featured: true,
 	},
 	{
 		id: "4",
@@ -40,3 +41,5 @@ export const timelineEvents: TimelineEvent[] = [
 ];
 
 export const sortedEventsByDate = timelineEvents.sort((a, b) => dayjs(b.date).valueOf() - dayjs(a.date).valueOf());
+
+export const featuredExperiences = sortedEventsByDate.filter((event) => event.type === "workExperience" && event.featured);
