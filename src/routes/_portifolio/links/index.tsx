@@ -43,6 +43,7 @@ function RouteComponent() {
 							href={href}
 							target="_blank"
 							rel="noreferrer"
+							onClick={() => window.umami?.track("social_click", { network: label })}
 							className="group relative overflow-hidden rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:scale-102 hover:border-primary hover:shadow-primary/10 hover:shadow-xl sm:p-8"
 						>
 							<div className="flex items-center gap-4 sm:gap-6">

@@ -53,6 +53,7 @@ export function ThemeProvider({ children, defaultTheme = "light" }: ThemeProvide
 		(newTheme: ThemeKeys) => {
 			if (newTheme === currentTheme || isThemeLoading) return;
 			setCurrentTheme(newTheme);
+			window.umami?.track("change_theme", { theme: newTheme });
 		},
 		[currentTheme, isThemeLoading],
 	);

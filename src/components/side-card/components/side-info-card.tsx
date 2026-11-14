@@ -15,7 +15,7 @@ export function SideInfoCard({ className }: SideInfoCardProps) {
 		>
 			<Card.Header className="relative w-full place-items-center justify-center gap-4">
 				<div className="size-32 overflow-hidden rounded-lg border bg-accent p-2">
-					<Image src="/tk.webp" alt="markin" height={100} width={100} className="size-full rounded-md object-cover" />
+					<Image src="/eu.webp" alt="markin" height={100} width={100} className="size-full rounded-md object-cover" />
 				</div>
 				<div className="flex flex-col items-center">
 					<h1 className="font-bold text-2xl">Marcos</h1>
@@ -33,7 +33,14 @@ export function SideInfoCard({ className }: SideInfoCardProps) {
 				<div className="mx-auto flex items-center gap-4 rounded-full border px-4 py-2">
 					{socialMedias.map(({ icon: Icon, label, href }) => {
 						return (
-							<a href={href} title={label} key={href} target="_blank" rel="noreferrer">
+							<a
+								onClick={() => window.umami?.track("social_click", { network: label })}
+								href={href}
+								title={label}
+								key={href}
+								target="_blank"
+								rel="noreferrer"
+							>
 								<Icon className="size-6 fill-primary" />
 							</a>
 						);

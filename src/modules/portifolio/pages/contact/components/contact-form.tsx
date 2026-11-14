@@ -23,7 +23,13 @@ export function ContactForm() {
 		},
 		defaultValues,
 		onSubmit: async ({ value }) => {
-			await sendMessage(value);
+			try {
+				await sendMessage(value);
+				window.umami?.track("contact_submit_success");
+			} catch (error) {
+				window.umami?.track("contact_submit_error", { form: "contact" });
+				throw error;
+			}
 		},
 	});
 
@@ -80,7 +86,7 @@ export function ContactForm() {
 
 			<Form.AppForm>
 				<Form.SubmitButton className="max-lg:w-full" size="lg">
-					Enviar Menssagem!
+					Enviar Mensagem!
 				</Form.SubmitButton>
 			</Form.AppForm>
 		</form>

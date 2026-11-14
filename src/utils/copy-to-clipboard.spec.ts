@@ -21,6 +21,15 @@ Object.defineProperty(globalThis, "navigator", {
 	configurable: true,
 });
 
+Object.defineProperty(globalThis, "window", {
+	value: {
+		umami: {
+			track: vi.fn(),
+		},
+	},
+	configurable: true,
+});
+
 describe("copyToClipboard", () => {
 	it("should call navigator.clipboard.writeText and toast.success", () => {
 		const value = "test value";
